@@ -1,0 +1,14 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    
+
+let put = s.trimEnd();
+ let arr = put.split(" ").pop();
+ let man = arr.length;
+
+ return man;
+
+};
