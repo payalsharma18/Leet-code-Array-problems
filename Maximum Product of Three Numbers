@@ -1,0 +1,36 @@
+Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
+Example 1:
+Input: nums = [1,2,3]
+Output: 6
+Approach
+First we have to sort it out by descending.
+We have two case to get max number with three numbers.
+we have two cases -
+If array contains only postive/negative numbers
+take first 3 numbers .
+for example if we sort this [4,2,15,6] descending we wil get [15,6,4,2].
+so take the first three indices values 1564 to get max product
+If array contains both postive & negative numbers
+we take first number and last two numbers.
+for example if we sort this [-100,-98,-1,2,3,4] desc we will get [4,3,2,1,-1,-98,-100]
+if we take 4 , -100 , -98 and product it then we will get max product.
+At last we compare both approach and check which approach value is greater , then return that value
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maximumProduct = function (nums) {
+    const l = nums.length;
+    const num = nums.sort((a, b) => b-a);
+    
+    for (let i = 0; i < l; i++) {
+        const res1 = nums[0] * nums[1] * nums[2];
+        const res2 = nums[0] * nums[l - 1] * nums[l - 2];
+
+        if (res1 > res2) {
+            return res1;
+        } else
+            return res2;
+    }
+};
