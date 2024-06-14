@@ -1,0 +1,15 @@
+//Write a program to do sum of all the digits till it become a single digit 
+//Input = 123
+//output = 6
+
+const nums = 12345;
+
+
+function sumOfAll(nums) {
+  const str = String(nums).split("").map((num) => {
+    return Number(num);
+  })
+
+  return str.reduce((a,c)=>a+c,0);
+}
+console.log(sumOfAll(nums));
