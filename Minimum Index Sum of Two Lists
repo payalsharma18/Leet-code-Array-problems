@@ -1,0 +1,35 @@
+Minimum Index Sum of Two Lists
+Given two arrays of strings list1 and list2, find the common strings with the least index sum.
+A common string is a string that appeared in both list1 and list2.
+A common string with the least index sum is a common string such that if it appeared at list1[i] and list2[j] then i + j should be the minimum value among all the other common strings.
+Return all the common strings with the least index sum. Return the answer in any order.
+
+/**
+ * @param {string[]} list1
+ * @param {string[]} list2
+ * @return {string[]}
+ */
+var findRestaurant = function(list1, list2) {
+
+  let resultingIndex = Infinity;
+  let resultingWord = [];
+  
+  for (let i = 0; i < list1.length; i++) {
+    for (let j = 0; j < list2.length; j++) {
+      if (list1[i] == list2[j]) {
+        let sumOfIndex = i + j;
+        if (sumOfIndex < resultingIndex) {
+          resultingIndex = sumOfIndex;
+          resultingWord = [list1[i]];
+        }
+        else if(sumOfIndex == resultingIndex){
+          resultingWord.push(list1[i]);
+        }
+      }
+
+    }
+
+  }
+  return resultingWord;
+
+};
